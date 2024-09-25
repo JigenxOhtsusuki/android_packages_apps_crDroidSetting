@@ -75,7 +75,7 @@
     <!-- Share crDroid -->
     <string name="share_crdroid_title">Share Stark OS</string>
     <string name="share_crdroid_summary">Let others know about Stark OS</string>
-    <string name="share_message">Check out Developer's Github https://github.com/JigenxOhtsusuki</string>
+    <string name="share_message">Check out Developer Github https://github.com/JigenxOhtsusuki</string>
     <string name="share_chooser_title">Share crDroid</string>
 
     <!-- Sites crDroid -->
