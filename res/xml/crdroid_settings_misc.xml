@@ -107,4 +107,11 @@
         android:summary="@string/pocket_judge_summary"
         android:defaultValue="false" />
 
+    <com.crdroid.settings.preferences.SystemSettingSwitchPreference
+        android:key="content_filtering"
+        android:icon="@drawable/ic_adult"
+        android:title="Block Adult Content"
+        android:summary="Enable to block adult content using DNS filtering"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
