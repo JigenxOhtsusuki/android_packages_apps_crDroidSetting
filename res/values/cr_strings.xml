@@ -17,10 +17,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- App Title -->
-    <string name="crdroid_settings_title">crDroid Settings</string>
-    <string name="crdroid_settings_summary">Open goodness</string>
+    <string name="crdroid_settings_title">Stark Industries</string>
+    <string name="crdroid_settings_summary">Everyone needs a happy Ending! Right?</string>
     <string name="reset_settings_title">Reset settings</string>
-    <string name="reset_settings_message">This will reset most crdroid settings to their default values for the current user. Would you like to continue?</string>
+    <string name="reset_settings_message">This will reset most Stark settings to their default values for the current user. Would you like to continue?</string>
 
     <!-- Personalization Categories -->
     <string name="button_title">Buttons</string>
@@ -28,7 +28,7 @@
     <string name="misc_title">Miscellaneous</string>
     <string name="navigation_title">Navigation</string>
     <string name="notifications_title">Notifications</string>
-    <string name="quicksettings_title">Quick Settings</string>
+    <string name="quicksettings_title">QS Costomizations</string>
     <string name="sound_title">Sound</string>
     <string name="statusbar_title">Status Bar</string>
     <string name="display_title">Display</string>
@@ -69,19 +69,19 @@
     <string name="changelog_crdroid_error">Unable to load changelog</string>
 
     <!-- About crDroid -->
-    <string name="about_crdroid">About crDroid</string>
+    <string name="about_crdroid">About Stark OS</string>
     <string name="about_device_name">Device</string>
 
     <!-- Share crDroid -->
-    <string name="share_crdroid_title">Share crDroid</string>
-    <string name="share_crdroid_summary">Let others know about crDroid</string>
-    <string name="share_message">Check out if #crDroidAndroid is available for your device @ https://crdroid.net/</string>
+    <string name="share_crdroid_title">Share Stark OS</string>
+    <string name="share_crdroid_summary">Let others know about Stark OS</string>
+    <string name="share_message">Check out Developer's Github https://github.com/JigenxOhtsusuki</string>
     <string name="share_chooser_title">Share crDroid</string>
 
     <!-- Sites crDroid -->
     <string name="crdroid_source_title">GitHub</string>
     <string name="crdroid_source_summary">We love open source, check us out</string>
-    <string name="crdroid_telegram_title">crDroid community</string>
+    <string name="crdroid_telegram_title">Stark OS community</string>
     <string name="crdroid_telegram_summary">We are on telegram. Join us!</string>
     <string name="crdroid_telegram_channel_title">Updates channel</string>
     <string name="crdroid_telegram_channel_summary">Get notified of new builds on Telegram</string>
@@ -97,7 +97,7 @@
     <!-- Donate crDroid -->
     <string name="donate_crdroid_title">Support us</string>
     <string name="donate_crdroid_summary">Donate to support further development</string>
-    <string name="donate_team_title">crDroid team</string>
+    <string name="donate_team_title">Stark OS team</string>
     <string name="donate_team_summary">Donate to support server hosting, site uptime and overall management</string>
 
     <!-- OTA -->
@@ -241,7 +241,7 @@
     <string name="power_menu_screenshot_title">Screenshot</string>
     <string name="power_menu_screenshot_summary">Long-press for partial screenshot</string>
     <string name="power_menu_onthego_title">On-The-Go mode</string>
-    <string name="power_menu_advanced_title">Advanced reboot options</string>
+    <string name="power_menu_advanced_title">More reboot options</string>
     <string name="power_menu_airplane_title">Airplane</string>
     <string name="power_menu_torch_title">Flashlight</string>
     <string name="power_menu_settings_title">Settings</string>
@@ -618,7 +618,7 @@
     <string name="qs_footer_settings_icon_title">Settings shortcut</string>
 
     <!-- Device Info screen. crDroid legal. -->
-    <string name="crdroid_license_title">crDroid legal</string>
+    <string name="crdroid_license_title">Stark OS legal</string>
 
     <!-- Quick Settings brightness slider -->
     <string name="qs_brightness_slider_category">Brightness slider</string>
