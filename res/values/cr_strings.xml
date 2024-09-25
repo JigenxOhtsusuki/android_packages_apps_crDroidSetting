@@ -1348,4 +1348,9 @@
     <!-- QS Bluetooth auto on -->
     <string name="qs_bt_auto_on_title">Automatic Bluetooth on</string>
     <string name="qs_bt_auto_on_summary">Always turn on Bluetooth when pressing the Bluetooth QS tile</string>
+
+    <!-- Adult block -->
+    <string name="content_filtering">No Adult Content</string>
+    <string name="content_filtering_summary">be a good person</string>
+     
 </resources>
