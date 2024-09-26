@@ -7,7 +7,7 @@ import android.widget.Toast;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
-import com.crdroid.settings.R;
+import com.android.settings.R;
 
 public class NetworkSettingsFragment extends PreferenceFragmentCompat implements Preference.OnPreferenceChangeListener {
 
