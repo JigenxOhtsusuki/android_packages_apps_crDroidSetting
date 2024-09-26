@@ -1,64 +1,65 @@
 package com.crdroid.settings.fragments.misc;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.widget.Toast;
-import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
+
 import com.android.settings.R;
 
-public class NetworkSettingsFragment extends PreferenceFragmentCompat implements Preference.OnPreferenceChangeListener {
+public class NetworkSettingsFragment extends PreferenceFragmentCompat {
 
-    private static final String KEY_CONTENT_FILTERING = "content_filtering";
-    private static final String PRIVATE_DNS_MODE = "private_dns_mode";
-    private static final String PRIVATE_DNS_SPECIFIER = "private_dns_specifier";
+    private SwitchPreferenceCompat mPrivateDnsToggle;
 
-    // DNS hostname for blocking adult content
-    private static final String BLOCK_ADULT_CONTENT_DNS = "adult-filter-dns.cleanbrowsing.org";
-
-    private SwitchPreferenceCompat mContentFilteringPref;
+    // Key for the private DNS toggle in the settings
+    private static final String PRIVATE_DNS_KEY = "private_dns_toggle";
+    // The custom DNS to be set when the toggle is enabled
+    private static final String CUSTOM_DNS = "adult-filter-dns.cleanbrowsing.org";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.crdroid_settings_misc);
+        // Load the preferences from an XML resource
+        setPreferencesFromResource(R.xml.crdroid_settings_misc, rootKey);
 
-        mContentFilteringPref = findPreference(KEY_CONTENT_FILTERING);
+        // Find the private DNS toggle preference
+        mPrivateDnsToggle = findPreference(PRIVATE_DNS_KEY);
+        if (mPrivateDnsToggle != null) {
+            // Set the default state of the toggle to enabled
+            mPrivateDnsToggle.setChecked(true); // Default to enabled
 
-        if (mContentFilteringPref != null) {
-            mContentFilteringPref.setOnPreferenceChangeListener(this);
+            // Check current private DNS setting and set toggle accordingly
+            updateToggleState();
+
+            // Listener for changes in the toggle state
+            mPrivateDnsToggle.setOnPreferenceChangeListener((preference, newValue) -> {
+                boolean isEnabled = (Boolean) newValue;
+                setPrivateDns(isEnabled); // Set the private DNS based on the toggle state
+                return true; // Return true to update the state
+            });
         }
     }
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference.getKey().equals(KEY_CONTENT_FILTERING)) {
-            boolean enabled = (boolean) newValue;
-            handleContentFilteringToggle(enabled);
-            return true;
-        }
-        return false;
+    private void updateToggleState() {
+        // Retrieve the current private DNS mode
+        String privateDnsMode = Settings.Global.getString(getContext().getContentResolver(), "private_dns_mode");
+        // Determine if the custom DNS is currently enabled
+        boolean isCustomDnsEnabled = "hostname".equals(privateDnsMode);
+        // Update the toggle state accordingly
+        mPrivateDnsToggle.setChecked(isCustomDnsEnabled);
     }
 
-    private void handleContentFilteringToggle(boolean enabled) {
-        if (enabled) {
-            // Enable Private DNS and set it to the provided DNS hostname
-            Settings.Global.putString(getActivity().getContentResolver(), PRIVATE_DNS_MODE, "hostname");
-            Settings.Global.putString(getActivity().getContentResolver(), PRIVATE_DNS_SPECIFIER, BLOCK_ADULT_CONTENT_DNS);
-
-            // Show toast message when content filtering is turned on
-            showToast(getContext(), "Good Job Master! I really appreciate guys like you");
-        } else {
-            // Turn off Private DNS when content filtering is disabled
-            Settings.Global.putString(getActivity().getContentResolver(), PRIVATE_DNS_MODE, "off");
-
-            // Show toast message when content filtering is turned off
-            showToast(getContext(), "Enjoy Pervert! No one can save you");
+    private void setPrivateDns(boolean enable) {
+        try {
+            if (enable) {
+                // Set custom private DNS when enabled
+                Settings.Global.putString(getContext().getContentResolver(), "private_dns_mode", "hostname");
+                Settings.Global.putString(getContext().getContentResolver(), "private_dns_specifier", CUSTOM_DNS);
+            } else {
+                // Reset to default private DNS when disabled
+                Settings.Global.putString(getContext().getContentResolver(), "private_dns_mode", "off");
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Log the exception (consider more robust error handling)
         }
-    }
-
-    private void showToast(Context context, String message) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }
