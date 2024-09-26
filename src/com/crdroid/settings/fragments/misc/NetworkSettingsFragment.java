@@ -7,7 +7,7 @@ import android.widget.Toast;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
-import com.crdroid.settings.R;  // Import R to access XML resources
+import com.crdroid.settings.R;
 
 public class NetworkSettingsFragment extends PreferenceFragmentCompat implements Preference.OnPreferenceChangeListener {
 
@@ -22,7 +22,7 @@ public class NetworkSettingsFragment extends PreferenceFragmentCompat implements
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.crdroid_settings_misc); // Ensure the XML is defined in res/xml
+        addPreferencesFromResource(R.xml.crdroid_settings_misc);
 
         mContentFilteringPref = findPreference(KEY_CONTENT_FILTERING);
 
@@ -54,12 +54,8 @@ public class NetworkSettingsFragment extends PreferenceFragmentCompat implements
             Settings.Global.putString(getActivity().getContentResolver(), PRIVATE_DNS_MODE, "off");
 
             // Show toast message when content filtering is turned off
-            showToast(getContext(), "enjoy Pervert! no one can save you");
+            showToast(getContext(), "Enjoy Pervert! No one can save you");
         }
-
-        // Refresh the Private DNS preference availability
-        PrivateDnsPreferenceController privateDnsController = new PrivateDnsPreferenceController(getContext());
-        privateDnsController.displayPreference(getPreferenceScreen());
     }
 
     private void showToast(Context context, String message) {
